@@ -9,6 +9,10 @@
 		"build": "tsc",
 		"prepare": "npm run build"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ProcessVersion/api-wrapper.git"
+	},
 	"homepage": "https://github.com/processversion/api-wrapper#readme",
 	"author": "ProcessVersion",
 	"license": "ISC",
