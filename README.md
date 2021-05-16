@@ -8,30 +8,119 @@ Example usage:
 
 ```js
 const API = require('@processversion/api-wrapper');
-
-// I would recommend putting the key in a .env file or a json file
-
 const api = new API('KEY HERE');
-
-(async function () {
-	const subreddit = await api.Subreddit('prequelmemes');
-
-	console.log(subreddit.data.created);
-})();
 ```
 
 - Typescript
 
 ```ts
 import API from '@processversion/api-wrapper';
-
 const api = new API('KEY HERE');
+```
+
+API keys can be found through my Discord Bot (WIP). I encourage putting the API key into a .env file or a JSON file and requiring it:
+
+- config.json
+
+```json
+{
+	"api_key": "KEY HERE"
+}
+```
+
+```js
+const config = require('./config.json');
+
+const API = require('@processversion/api-wrapper');
+const api = new API(config.api_key);
+```
+
+- Dotenv
+
+```txt
+API_KEY=KEY HERE
+```
+
+```js
+require('dotenv').config(); // npm i dotenv
+
+const API = require('@processversion/api-wrapper');
+const api = new API(process.env.API_KEY);
+```
+
+- Methods
+
+`new API('API_KEY').Discord('id_here')`
+
+```js
+const API = require('@processversion/api-wrapper');
+const api = new API('API_KEY');
 
 (async function () {
-	const user = await api.Roblox('404');
+	const info = await api.Discord('Discord ID');
 
-	console.log(user.data.bio);
+	if (info.success == false) console.log('An error occurred!');
+
+	console.log(info.data.createdAt); // Prints out date that the account was created
 })();
 ```
 
-I mainly made this for fun and just as a side project, so have fun with it!
+`new API('API_KEY').Reverse('any string')`
+
+```js
+const API = require('@processversion/api-wrapper');
+const api = new API('API_KEY');
+
+(async function () {
+	const info = await api.Reverse('processversion');
+
+	if (info.success == false) console.log('An error has occurred');
+
+	console.log(info.data.text); // Prints out: noisrevssecorp
+})();
+```
+
+`new API('API_KEY').Subreddit('subreddit name')`
+
+```js
+const API = require('@processversion/api-wrapper');
+const api = new API('API_KEY');
+
+(async function () {
+	const info = await api.Subreddit('prequelmemes');
+
+	if (info.success == false) console.log('An error has occurred!');
+
+	console.log(info.data.created); // Prints out date the subreddit was created
+})();
+```
+
+`new API('API_KEY').Reddit('user name')`
+
+```js
+const API = require('@processversion/api-wrapper');
+const api = new API('API_KEY');
+
+(async function () {
+	const info = await api.Reddit('reddit user');
+
+	if (info.success == false) console.log('An error has occurred');
+
+	console.log(info.data.created); // Returns when the user's account was created
+})();
+```
+
+`new API('API_KEY').Roblox('username')`
+
+```js
+const API = require('@processversion/api-wrapper');
+const api = new API('API_KEY');
+
+(async function () {
+	const info = await api.Roblox('roblox user');
+
+	if (info.success == false) console.log('An error has occurred');
+
+	console.log(info.data.joinDate); // Returns when the user's account was created
+})();
+```
