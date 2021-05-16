@@ -69,22 +69,6 @@ interface Roblox {
 		profile_url?: string;
 	};
 }
-interface Discord {
-	success: boolean;
-	status: number;
-	statusMessage: string;
-	data: {
-		username: string;
-		id: string;
-		tag: string;
-		system: boolean;
-		bot: boolean;
-		discriminator: string;
-		createdAt: string;
-		pfp: string;
-		flags: string;
-	};
-}
 interface Reverse {
 	success: boolean;
 	status: number;
@@ -161,30 +145,6 @@ export class API {
 				{ headers: { Authorization: this.key } }
 			);
 			const data = <Reverse>res.data;
-
-			if (data.success == false)
-				throw new Error(
-					`Status code: ${data.data}\nMessage: ${data.statusMessage}`
-				);
-
-			return data;
-		} catch (error) {
-			throw error;
-		}
-	}
-	/**
-	 * Fetch discord user information VIA Discord ID (Snowflake)
-	 */
-	async Discord(id: string) {
-		try {
-			if (!id || typeof id != 'string')
-				throw new Error('Missing required parameter or incorrect type');
-
-			const res = await axios.get(
-				`https://processversion.herokuapp.com/discord?id=${id}`,
-				{ headers: { Authorization: this.key } }
-			);
-			const data = <Discord>res.data;
 
 			if (data.success == false)
 				throw new Error(

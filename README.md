@@ -18,7 +18,7 @@ import API from '@processversion/api-wrapper';
 const api = new API('KEY HERE');
 ```
 
-API keys can be found through my Discord Bot (WIP). I encourage putting the API key into a .env file or a JSON file and requiring it:
+API keys can be found through my Discord Bot (WIP). Spamming any of the endpoints is an easy way to get your token revoked and your IP banned. I encourage putting the API key into a .env file or a JSON file and requiring it:
 
 - config.json
 
@@ -49,21 +49,6 @@ const api = new API(process.env.API_KEY);
 ```
 
 - Methods
-
-`new API('API_KEY').Discord('id_here')`
-
-```js
-const API = require('@processversion/api-wrapper');
-const api = new API('API_KEY');
-
-(async function () {
-	const info = await api.Discord('Discord ID');
-
-	if (info.success == false) console.log('An error occurred!');
-
-	console.log(info.data.createdAt); // Prints out date that the account was created
-})();
-```
 
 `new API('API_KEY').Reverse('any string')`
 
@@ -123,4 +108,10 @@ const api = new API('API_KEY');
 
 	console.log(info.data.joinDate); // Returns when the user's account was created
 })();
+```
+
+- Simple Discord Bot example
+
+```js
+const {} = require('discord.js');
 ```
