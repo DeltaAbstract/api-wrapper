@@ -1,6 +1,6 @@
 {
 	"name": "@processversion/api-wrapper",
-	"version": "1.0.8",
+	"version": "1.0.1",
 	"description": "API wrapper for my own API",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -9,10 +9,15 @@
 		"build": "tsc",
 		"prepare": "npm run build"
 	},
-	"author": "",
+	"homepage": "https://github.com/processversion/api-wrapper#readme",
+	"author": "ProcessVersion",
 	"license": "ISC",
 	"dependencies": {
 		"axios": "^0.21.1"
+	},
+	"bugs": {
+		"url": "https://github.com/ProcessVersion/api-wrapper/issues",
+		"email": "processversion@gmail.com"
 	},
 	"devDependencies": {
 		"typescript": "^4.2.4"
