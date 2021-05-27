@@ -62,7 +62,7 @@ interface Roblox {
 		joinDate: string;
 		isBanned: boolean;
 		age?: string;
-		usernames?: string[];
+		pastNames?: string[];
 		friends?: number;
 		following?: string;
 		followers?: string;
