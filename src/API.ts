@@ -77,15 +77,33 @@ interface Reverse {
 		text: string;
 	};
 }
+
+interface Endpoints {
+	subreddit: string;
+	reverse: string;
+	reddit: string;
+	roblox: string;
+	//	discord: string;
+}
+
 export class API {
 	/** API key */
 	key: string;
+	baseURL: string;
+	endpoints: Endpoints;
 	constructor(key: string) {
 		if (!key || typeof key != 'string')
 			throw new Error(
 				'You need to provide a key and it needs to be of type string'
 			);
 		this.key = key;
+		this.baseURL = 'https://processversion.herokuapp.com/';
+		this.endpoints = {
+			subreddit: 'https://processversion.herokuapp.com/subreddit?subreddit=',
+			reverse: 'https://processversion.herokuapp.com/reverse?text=',
+			reddit: 'https://processversion.herokuapp.com/reddit?user=',
+			roblox: 'https://processversion.herokuapp.com/roblox?username=',
+		};
 	}
 	/**
 	 * Fetch a reddit user's information
